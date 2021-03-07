@@ -1,0 +1,33 @@
+Java SDLC
+
+Softwares:
+Oracle jdk 11 download - https://www.oracle.com/in/java/technologies/javase-jdk11-downloads.html
+Apache maven download - https://maven.apache.org/download.cgi
+Git download - https://git-scm.com/downloads
+
+Website:
+Github - https://github.com/login
+
+
+1 Log into Github https://github.com/login
+2 Create a repository in Github (maven-project)
+3 Open GitBash and run the below commands
+	git clone https://github.com/rajnandhube/maven-project.git
+	cd maven-project
+	mvn archetype:generate
+	#Central repo -  https://repo.maven.apache.org/maven2
+		Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 1744: 1744
+		Choose org.apache.maven.archetypes:maven-archetype-quickstart version: Choose a number: 8: 8
+		Define value for property 'groupId': india
+		Define value for property 'artifactId': karnataka
+		Define value for property 'version' 1.0-SNAPSHOT: : 1.0-SNAPSHOT
+		Define value for property 'package' india: : jar
+		Y: : Y
+	#Sample Java project has been created.
+	mv ./karnataka/* .
+	rm -rf karnataka
+	mvn package
+	#Test Jar file
+	cd target/
+	java -cp karnataka-1.0-SNAPSHOT.jar jar.App    #package_name.class_name
+	
