@@ -4,6 +4,35 @@ Softwares:
 Oracle jdk 11 download - https://www.oracle.com/in/java/technologies/javase-jdk11-downloads.html
 Apache maven download - https://maven.apache.org/download.cgi
 Git download - https://git-scm.com/downloads
+jenkins download - https://www.jenkins.io/download/
+Download Nexus Repository OSS - Sonatype - https://help.sonatype.com/repomanager3/download
+										   https://www.sonatype.com/nexus/repository-oss-download
+										   cd C:\nexus-3.30.0-01-win64\nexus-3.30.0-01\bin
+										   nexus.exe/run
+										   #https://www.youtube.com/watch?v=RcWSch8r3Zw&t=11s
+										   #https://datacadamia.com/maven/distribution_management
+										   #add a server credentials in settings.xml
+										       <server>
+												  <id>nexus-server</id>
+												  <username>admin</username>
+												  <password>admin</password>
+												</server>
+												
+											#Add distribution management plugin in pom.xml
+											  <distributionManagement>
+													<repository>
+													  <id>nexus-server</id>
+													  <name>maven-project-release</name>
+													  <url>http://localhost:8081/repository/maven-project-release/</url>
+													</repository>
+													
+													<snapshotRepository>
+													  <id>nexus-server</id>
+													  <name>maven-project-snapshot</name>
+													  <url>http://localhost:8081/repository/maven-project-snapshot/</url>
+													</snapshotRepository>
+												</distributionManagement>
+
 
 Website:
 Github - https://github.com/login
@@ -14,6 +43,8 @@ Github - https://github.com/login
 3 Open GitBash and run the below commands
 	git clone https://github.com/rajnandhube/maven-project.git
 	cd maven-project
+	
+	#Creating a sample Java project.
 	mvn archetype:generate
 	#Central repo -  https://repo.maven.apache.org/maven2
 		Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 1744: 1744
@@ -23,11 +54,18 @@ Github - https://github.com/login
 		Define value for property 'version' 1.0-SNAPSHOT: : 1.0-SNAPSHOT
 		Define value for property 'package' india: : jar
 		Y: : Y
-	#Sample Java project has been created.
+		
 	mv ./karnataka/* .
 	rm -rf karnataka
 	mvn package
+	
 	#Test Jar file
 	cd target/
 	java -cp karnataka-1.0-SNAPSHOT.jar jar.App    #package_name.class_name
+	
+	#push code to github repo
+	git add .
+	git commit -m "Java project is added to repo"
+	git push
+	
 	
