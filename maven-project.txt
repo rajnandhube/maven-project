@@ -11,7 +11,8 @@ Download Nexus Repository OSS - Sonatype - https://help.sonatype.com/repomanager
 										   nexus.exe/run
 										   #https://www.youtube.com/watch?v=RcWSch8r3Zw&t=11s
 										   #https://datacadamia.com/maven/distribution_management
-										   #add a server credentials in settings.xml
+										   
+										   #add a server credentials in settings.xml. Move settings.xml to (~/.m2/) directory or (C:\apache-maven-3.6.3\conf) 
 										       <server>
 												  <id>nexus-server</id>
 												  <username>admin</username>
